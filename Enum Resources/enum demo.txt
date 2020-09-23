@@ -1,0 +1,8 @@
+Date: Monday, October 20, 2003
+
+UserName:      Lam
+Computer Name: Lam
+Network...    Microsoft Terminal Services 
+Network...    Microsoft Windows Network   
+Network...    Web Client Network          
+Domain...     MSHOME        

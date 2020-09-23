@@ -1,0 +1,1866 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>A 28 Windows Information APIs Tutorial</title>
+</head>
+
+<body>
+
+<p align="center"><u><b><font face="Comic Sans MS" size="6">A 28 Windows 
+Information APIs Tutorial</font></b></u></p>
+<p><font face="Comic Sans MS" size="4"><b>What will you learn<br>
+</b></font><font face="Comic Sans MS">- How to use all 28 APIs related with 
+Windows information</font></p>
+<p><font face="Comic Sans MS" size="4"><b>Learning Method<br>
+</b></font><font face="Comic Sans MS">- Brief description about the API<br>
+- Detailed information about the API's declaration, parameter and return values<br>
+- Full working source code to demonstrates how to use the API</font></p>
+<p><u><font face="Comic Sans MS" size="4"><b>Brief Description<br>
+</b></font></u><font face="Comic Sans MS">There are 28 APIs related with Windows 
+information altogether. Below are brief desciption for each API :</font></p>
+<ol>
+  <li><font face="Comic Sans MS"><b>GetAllUsersProfileDirectory : </b>The 
+  GetAllUsersProfileDirectory function retrieves the path to the root of the All 
+  Users profile.</font></li>
+  <li><font face="Comic Sans MS"><b>GetComputerName : </b>The GetComputerName 
+  function retrieves the computer name of the current system. This name is 
+  established at system startup, when it is initialized from the registry.</font></li>
+  <li><font face="Comic Sans MS"><b>GetComputerNameEx : </b>The 
+  GetComputerNameEx function retrieves a NetBIOS or DNS name associated with the 
+  local computer. The names are established at system startup, when the system 
+  reads them from the registry.</font></li>
+  <li><font face="Comic Sans MS"><b>GetDefaultUserProfileDirectory : </b>The 
+  GetDefaultUserProfileDirectory function retrieves the path to the root of the 
+  Default User profile.</font></li>
+  <li><font face="Comic Sans MS"><b>GetDeviceCaps : </b>The GetDeviceCaps 
+  function retrieves device-specific information about a specified device.</font></li>
+  <li><font face="Comic Sans MS"><b>GetNativeSystemInfo : </b>The 
+  GetNativeSystemInfo function retrieves information about the current system to 
+  an application running under WOW64. If the function is called from a 64-bit 
+  application, it is equivalent to the GetSystemInfo function.</font></li>
+  <li><font face="Comic Sans MS"><b>GetProfilesDirectory : </b>The 
+  GetProfilesDirectory function retrieves the path to the root directory where 
+  all user profiles are stored.</font></li>
+  <li><font face="Comic Sans MS"><b>GetSysColor : </b>The GetSysColor function 
+  retrieves the current color of the specified display element. Display elements 
+  are the parts of a window and the Windows display that appear on the system 
+  display screen.</font></li>
+  <li><font face="Comic Sans MS"><b>GetSystemDirectory : </b>The 
+  GetSystemDirectory function retrieves the path of the Windows system 
+  directory. The system directory contains such files as Windows libraries, 
+  drivers, and font files.</font></li>
+  <li><font face="Comic Sans MS"><b>GetSystemInfo : </b>The GetSystemInfo 
+  function returns information about the current system.</font></li>
+  <li><font face="Comic Sans MS"><b>GetSystemMetrics : </b>The GetSystemMetrics 
+  function retrieves various system metrics and system configuration 
+  settings.System metrics are the dimensions (widths and heights) of Windows 
+  display elements. All dimensions retrieved by GetSystemMetrics are in pixels.</font></li>
+  <li><font face="Comic Sans MS"><b>GetSystemPowerStatus : </b>The 
+  GetSystemPowerStatus function retrieves the power status of the system. The 
+  status indicates whether the system is running on AC or DC power, whether the 
+  battery is currently charging, and how much battery life remains.</font></li>
+  <li><font face="Comic Sans MS"><b>GetTempPath : </b>The GetTempPath function 
+  retrieves the path of the directory designated for temporary files. This 
+  function supersedes the GetTempDrive function.</font></li>
+  <li><font face="Comic Sans MS"><b>GetTextMetrics : </b>The GetTextMetrics 
+  function fills the specified buffer with the metrics for the currently 
+  selected font.</font></li>
+  <li><font face="Comic Sans MS"><b>GetUserName : </b>The GetUserName function 
+  retrieves the user name of the current thread. This is the name of the user 
+  currently logged onto the system.</font></li>
+  <li><font face="Comic Sans MS"><b>GetUserNameEx : </b>The GetUserNameEx 
+  function retrieves the name of the user or other security principal associated 
+  with the calling thread. You can specify the format of the returned name.</font></li>
+  <li><font face="Comic Sans MS"><b>GetUserProfileDirectory : </b>The 
+  GetUserProfileDirectory function retrieves the path to the root directory of 
+  the specifie user's profile.</font></li>
+  <li><font face="Comic Sans MS"><b>GetVersion : </b>The GetVersion function 
+  returns the current version number of Windows and information about the 
+  operating system platform.</font></li>
+  <li><font face="Comic Sans MS"><b>GetVersionEx : </b>The GetVersionEx function 
+  obtains extended information about the version of the operating system that is 
+  currently running.</font></li>
+  <li><font face="Comic Sans MS"><b>GetWindowsDirectory : </b>The 
+  GetWindowsDirectory function retrieves the path of the Windows directory. The 
+  Windows directory contains such files as Windows-based applications, 
+  initialization files, and Help files.</font></li>
+  <li><font face="Comic Sans MS"><b>IsProcessorFeaturePresent : </b>The 
+  IsProcessorFeaturePresent function determines whether the specified processor 
+  feature is supported by the current computer.</font></li>
+  <li><font face="Comic Sans MS"><b>IsSystemResumeAutomatic : </b>The 
+  IsSystemResumeAutomatic function indicates the current state of the computer.</font></li>
+  <li><font face="Comic Sans MS"><b>IsWow64Process : </b>The IsWow64Process 
+  function determines whether the specified process is running under WOW64.</font></li>
+  <li><font face="Comic Sans MS"><b>LookupAccountName : </b>The 
+  LookupAccountName function accepts the name of a system and an account as 
+  input. It retrieves a security identifier (SID) for the account and the name 
+  of the domain on which the account was found.</font></li>
+  <li><font face="Comic Sans MS"><b>SetComputerName : </b>The SetComputerName 
+  function sets the computer name to be used the next time the system is 
+  restarted.</font></li>
+  <li><font face="Comic Sans MS"><b>SetSysColors : </b>The SetSysColors function 
+  sets the colors for one or more display elements. Display elements are the 
+  various parts of a window and the Windows display that appear on the system 
+  display screen.</font></li>
+  <li><font face="Comic Sans MS"><b>SHGetSpecialFolderLocation : </b>Retrieves 
+  the location of a special folder.</font></li>
+  <li><font face="Comic Sans MS"><b>SystemParametersInfo : </b>The 
+  SystemParametersInfo function queries or sets systemwide parameters. This 
+  function can also update the user profile while setting a parameter.</font></li>
+</ol>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetAllUsersProfileDirectory</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetAllUsersProfileDirectory Lib &quot;userenv.dll&quot; Alias 
+&quot;GetAllUsersProfileDirectoryA&quot; (ByVal lpProfileDir As String, lpcchSize As Long) 
+As Boolean<br>
+<b><br>
+Parameters<br>
+</b>· lpProfileDir<br>
+[out] Pointer to a buffer that receives the path to the All Users profile 
+directory.<br>
+<br>
+· lpcchSize<br>
+[in/out] Specifies the size of the lpProfileDir buffer, in TCHARs.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>User Directories\User Directory Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><font size="4" face="Comic Sans MS"><b>GetComputerName</b></font></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetComputerName Lib &quot;kernel32&quot; Alias &quot;GetComputerNameA&quot; 
+(ByVal lpBuffer As String, nSize As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpBuffer<br>
+Points to a buffer to receive the null-terminated character string containing 
+the computer name.<br>
+<br>
+· nSize<br>
+Points to a variable that specifies the maximum size, in characters, of the 
+buffer. This value should be large enough to contain MAX_COMPUTERNAME_LENGTH + 1 
+characters.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero and the variable 
+represented by the nSize parameter contains the number of characters copied to 
+the destination buffer, not including the terminating null character. <br>
+<b><br>
+Example(s)<br>
+</b>Get Computer Name\Get Demo.vbp<br>
+Enum Resources\Enum Demo.vbp<br>
+System Shutdown\System Shutdown Demo.vbp</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetComputerNameEx</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetComputerNameEx Lib &quot;kernel32.dll&quot; Alias 
+&quot;GetComputerNameExA&quot; (ByVal NameType As COMPUTER_NAME_FORMAT, ByVal lpBuffer As 
+String, ByRef nSize As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· NameType <br>
+[in] A value from the COMPUTER_NAME_FORMAT enumeration type that specifies the 
+type of name to retrieve. <br>
+<br>
+This parameter can be one of the following values from the COMPUTER_NAME_FORMAT 
+enumeration type that specifies the type of name to retrieve.<br>
+ComputerNameNetBIOS - The NetBIOS name of the local computer. If the local 
+computer is a node in a cluster, lpBuffer receives the NetBIOS name of the 
+cluster. <br>
+ComputerNameDnsHostname - The DNS host name of the local computer. If the local 
+computer is a node in a cluster, lpBuffer receives the DNS host name of the 
+cluster. <br>
+ComputerNameDnsDomain - The name of the DNS domain assigned to the local 
+computer. If the local computer is a node in a cluster, lpBuffer receives the 
+DNS domain name of the cluster. <br>
+ComputerNameDnsFullyQualified - The fully qualified DNS name that uniquely 
+identifies the local computer. This name is a combination of the DNS host name 
+and the DNS domain name, using the form HostName.DomainName. If the local 
+computer is a node in a cluster, lpBuffer receives the fully qualified DNS name 
+of the cluster. <br>
+ComputerNamePhysicalNetBIOS - The NetBIOS name of the local computer. If the 
+local computer is a node in a cluster, lpBuffer receives the NetBIOS name of the 
+local computer, not the name of the cluster. <br>
+ComputerNamePhysicalDnsHostname - The DNS host name of the local computer. If 
+the local computer is a node in a cluster, lpBuffer receives the DNS host name 
+of the local computer, not the name of the cluster. <br>
+ComputerNamePhysicalDnsDomain - The name of the DNS domain assigned to the local 
+computer. If the local computer is a node in a cluster, lpBuffer receives the 
+DNS domain name of the local computer, not the name of the cluster. <br>
+ComputerNamePhysicalDnsFullyQualified - The fully qualified DNS name that 
+uniquely identifies the computer. If the local computer is a node in a cluster, 
+lpBuffer receives the fully qualified DNS name of the local computer, not the 
+name of the cluster. <br>
+The fully qualified DNS name is a combination of the DNS host name and the DNS 
+domain name, using the form HostName.DomainName. <br>
+<br>
+· lpBuffer <br>
+[out] Pointer to a buffer that receives a null-terminated string containing the 
+computer name. <br>
+The length of the name may be greater than MAX_COMPUTERNAME_LENGTH characters 
+because DNS allows longer names. <br>
+<br>
+· lpnSize <br>
+[in/out] On input, specifies the size, in TCHARs, of the buffer. On output, 
+receives the number of TCHARs copied to the destination buffer, not including 
+the terminating null character. <br>
+If the buffer is too small, the function fails and GetLastError returns 
+ERROR_MORE_DATA. The lpnSize parameter specifies the size of the buffer 
+required, including the terminating null character. <br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>GetComNameEx\GetComNameEx Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><font size="4"><b>GetDefaultUserProfileDirectory</b></font></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetDefaultUserProfileDirectory Lib &quot;userenv.dll&quot; Alias 
+&quot;GetDefaultUserProfileDirectoryA&quot; (ByVal lpProfileDir As String, lpcchSize As 
+Long) As Boolean<br>
+<b><br>
+Parameters<br>
+</b>· lpProfileDir<br>
+[out] Pointer to a buffer that receives the path to the Default User profile 
+directory.<br>
+<br>
+· lpcchSize<br>
+[in/out] Specifies the size of the lpProfileDir buffer, in TCHARs.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>User Directories\User Directory Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetDeviceCaps</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetDeviceCaps Lib &quot;gdi32&quot; Alias &quot;GetDeviceCaps&quot; (ByVal hdc 
+As Long, ByVal nIndex As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· hdc<br>
+Identifies the device context.<br>
+<br>
+· nIndex<br>
+Specifies the item to return. This parameter can be one of the following values:<br>
+DRIVERVERSION<br>
+The device driver version.<br>
+<br>
+TECHNOLOGY<br>
+Device technology. It can be any one of the following values:<br>
+DT_PLOTTER<br>
+Vector plotter<br>
+DT_RASDISPLAY<br>
+Raster display<br>
+DT_RASPRINTER<br>
+Raster printer<br>
+DT_RASCAMERA<br>
+Raster camera<br>
+DT_CHARSTREAM<br>
+Character stream<br>
+DT_METAFILE<br>
+Metafile<br>
+DT_DISPFILE<br>
+Display file<br>
+If the hdc parameter identifies the device context of an enhanced metafile, the 
+device technology is that of the referenced device as given to the 
+CreateEnhMetaFile function. To determine whether it is an enhanced metafile 
+device context, use the GetObjectType function.<br>
+HORZSIZE<br>
+Width, in millimeters, of the physical screen.<br>
+VERTSIZE<br>
+Height, in millimeters, of the physical screen.<br>
+HORZRES<br>
+Width, in pixels, of the screen.<br>
+VERTRES<br>
+Height, in raster lines, of the screen.<br>
+LOGPIXELSX<br>
+Number of pixels per logical inch along the screen width.<br>
+LOGPIXELSY<br>
+Number of pixels per logical inch along the screen height.<br>
+BITSPIXEL<br>
+Number of adjacent color bits for each pixel.<br>
+PLANES<br>
+Number of color planes.<br>
+NUMBRUSHES<br>
+Number of device-specific brushes.<br>
+NUMPENS<br>
+Number of device-specific pens.<br>
+NUMFONTS<br>
+Number of device-specific fonts.<br>
+NUMCOLORS<br>
+Number of entries in the device’s color table, if the device has a color depth 
+of no more than 8 bits per pixel. For devices with greater color depths, -1 is 
+returned.<br>
+ASPECTX<br>
+Relative width of a device pixel used for line drawing.<br>
+ASPECTY<br>
+Relative height of a device pixel used for line drawing.<br>
+ASPECTXY<br>
+Diagonal width of the device pixel used for line drawing.<br>
+PDEVICESIZE<br>
+Reserved.<br>
+CLIPCAPS<br>
+Flag that indicates the clipping capabilities of the device. If the device can 
+clip to a rectangle, it is 1. Otherwise, it is 0.<br>
+SIZEPALETTE<br>
+Number of entries in the system palette. This index is valid only if the device 
+driver sets the RC_PALETTE bit in the RASTERCAPS index and is available only if 
+the driver is compatible with Windows version 3.0 or later.<br>
+NUMRESERVED<br>
+Number of reserved entries in the system palette. This index is valid only if 
+the device driver sets the RC_PALETTE bit in the RASTERCAPS index and is 
+available only if the driver is compatible with Windows version 3.0 or later.<br>
+COLORRES<br>
+Actual color resolution of the device, in bits per pixel. This index is valid 
+only if the device driver sets the RC_PALETTE bit in the RASTERCAPS index and is 
+available only if the driver is compatible with Windows version 3.0 or later.<br>
+PHYSICALWIDTH<br>
+For printing devices: the width of the physical page, in device units. For 
+example, a printer set to print at 600 dpi on 8.5&quot;x11&quot; paper has a physical 
+width value of 5100 device units. Note that the physical page is almost always 
+greater than the printable area of the page, and never smaller.<br>
+PHYSICALHEIGHT<br>
+For printing devices: the height of the physical page, in device units. For 
+example, a printer set to print at 600 dpi on 8.5&quot;x11&quot; paper has a physical 
+height value of 6600 device units. Note that the physical page is almost always 
+greater than the printable area of the page, and never smaller.<br>
+PHYSICALOFFSETX<br>
+For printing devices: the distance from the left edge of the physical page to 
+the left edge of the printable area, in device units. For example, a printer set 
+to print at 600 dpi on 8.5&quot;x11&quot; paper, that cannot print on the leftmost 0.25&quot; 
+of paper, has a horizontal physical offset of 150 device units.<br>
+PHYSICALOFFSETY<br>
+For printing devices: the distance from the top edge of the physical page to the 
+top edge of the printable area, in device units. For example, a printer set to 
+print at 600 dpi on 8.5&quot;x11&quot; paper, that cannot print on the topmost 0.5&quot; of 
+paper, has a vertical physical offset of 300 device units.<br>
+VREFRESH<br>
+Windows NT only: For display devices: the current vertical refresh rate of the 
+device, in cycles per second (Hz).<br>
+A vertical refresh rate value of 0 or 1 represents the display hardware’s 
+default refresh rate. This default rate is typically set by switches on a 
+display card or computer motherboard, or by a configuration program that does 
+not use Win32 display functions such as ChangeDisplaySettings.<br>
+DESKTOPHORZRES<br>
+Windows NT only: Width, in pixels, of the virtual desktop. This value may be 
+larger than HORZRES if the device supports a virtual desktop or multiple 
+displays.<br>
+DESKTOPVERTRES<br>
+Windows NT only: Height, in pixels, of the virtual desktop. This value may be 
+larger than VERTRES if the device supports a virtual desktop or multiple 
+displays.<br>
+BLTALIGNMENT<br>
+Windows NT only: Preferred horizontal drawing alignment, expressed as a multiple 
+of pixels. For best drawing performance, windows should be horizontally aligned 
+to a multiple of this value. A value of zero indicates that the device is 
+accelerated, and any alignment may be used.<br>
+<br>
+RASTERCAPS<br>
+Value that indicates the raster capabilities of the device, as shown in the 
+following table:<br>
+RC_BANDING<br>
+Requires banding support.<br>
+RC_BITBLT<br>
+Capable of transferring bitmaps.<br>
+RC_BITMAP64<br>
+Capable of supporting bitmaps larger than 64K.<br>
+RC_DI_BITMAP<br>
+Capable of supporting the SetDIBits and GetDIBits functions.<br>
+RC_DIBTODEV<br>
+Capable of supporting the SetDIBitsToDevice function.<br>
+RC_FLOODFILL<br>
+Capable of performing flood fills.<br>
+RC_GDI20_OUTPUT<br>
+Capable of supporting features of Windows 2.0.<br>
+RC_PALETTE<br>
+Specifies a palette-based device.<br>
+RC_SCALING<br>
+Capable of scaling.<br>
+RC_STRETCHBLT<br>
+Capable of performing the StretchBlt function.<br>
+RC_STRETCHDIB<br>
+Capable of performing the StretchDIBits function.<br>
+<br>
+CURVECAPS<br>
+Value that indicates the curve capabilities of the device, as shown in the 
+following table:<br>
+CC_NONE<br>
+Device does not support curves.<br>
+CC_CIRCLES<br>
+Device can draw circles.<br>
+CC_PIE<br>
+Device can draw pie wedges.<br>
+CC_CHORD<br>
+Device can draw chord arcs.<br>
+CC_ELLIPSES<br>
+Device can draw ellipses.<br>
+CC_WIDE<br>
+Device can draw wide borders.<br>
+CC_STYLED<br>
+Device can draw styled borders.<br>
+CC_WIDESTYLED<br>
+Device can draw borders that are wide and styled.<br>
+CC_INTERIORS<br>
+Device can draw interiors.<br>
+CC_ROUNDRECT<br>
+Device can draw rounded rectangles.<br>
+<br>
+LINECAPS<br>
+Value that indicates the line capabilities of the device, as shown in the 
+following table:<br>
+LC_NONE<br>
+Device does not support lines.<br>
+LC_POLYLINE<br>
+Device can draw a polyline.<br>
+LC_MARKER<br>
+Device can draw a marker.<br>
+LC_POLYMARKER<br>
+Device can draw multiple markers.<br>
+LC_WIDE<br>
+Device can draw wide lines.<br>
+LC_STYLED<br>
+Device can draw styled lines.<br>
+LC_WIDESTYLED<br>
+Device can draw lines that are wide and styled.<br>
+LC_INTERIORS<br>
+Device can draw interiors.<br>
+<br>
+POLYGONALCAPS<br>
+Value that indicates the polygon capabilities of the device, as shown in the 
+following table:<br>
+PC_NONE<br>
+Device does not support polygons.<br>
+PC_POLYGON<br>
+Device can draw alternate-fill polygons.<br>
+PC_RECTANGLE<br>
+Device can draw rectangles.<br>
+PC_WINDPOLYGON<br>
+Device can draw winding-fill polygons.<br>
+PC_SCANLINE<br>
+Device can draw a single scanline.<br>
+PC_WIDE<br>
+Device can draw wide borders.<br>
+PC_STYLED<br>
+Device can draw styled borders.<br>
+PC_WIDESTYLED<br>
+Device can draw borders that are wide and styled.<br>
+PC_INTERIORS<br>
+Device can draw interiors.<br>
+<br>
+TEXTCAPS<br>
+Value that indicates the text capabilities of the device, as shown in the 
+following table:<br>
+TC_OP_CHARACTER<br>
+Device is capable of character output precision.<br>
+TC_OP_STROKE<br>
+Device is capable of stroke output precision.<br>
+TC_CP_STROKE<br>
+Device is capable of stroke clip precision.<br>
+TC_CR_90<br>
+Device is capable of 90-degree character rotation.<br>
+TC_CR_ANY<br>
+Device is capable of any character rotation.<br>
+TC_SF_X_YINDEP<br>
+Device can scale independently in the x- and y-directions.<br>
+TC_SA_DOUBLE<br>
+Device is capable of doubled character for scaling.<br>
+TC_SA_INTEGER<br>
+Device uses integer multiples only for character scaling.<br>
+TC_SA_CONTIN<br>
+Device uses any multiples for exact character scaling.<br>
+TC_EA_DOUBLE<br>
+Device can draw double-weight characters.<br>
+TC_IA_ABLE<br>
+Device can italicize.<br>
+TC_UA_ABLE<br>
+Device can underline.<br>
+TC_SO_ABLE<br>
+Device can draw strikeouts.<br>
+TC_RA_ABLE<br>
+Device can draw raster fonts.<br>
+TC_VA_ABLE<br>
+Device can draw vector fonts.<br>
+TC_RESERVED<br>
+Reserved; must be zero.<br>
+TC_SCROLLBLT<br>
+Device cannot scroll using a bit-block transfer. Note that this meaning may be 
+the opposite of what you expect.<br>
+<b><br>
+Return Values<br>
+</b>The return value specifies the value of the desired item. <br>
+<b><br>
+Example(s)<br>
+</b>Move Cursor\Move Cursor Demo.vbp<br>
+Create Font\Create Font Demo.vbp<br>
+Change Screen Resolution\Change Resolution Demo.vbp<br>
+Create Picture\Create Pic Demo.vbp<br>
+Font Size\Font Size Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetNativeSystemInfo</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Sub GetNativeSystemInfo Lib &quot;kernel32&quot; (lpSystemInfo As SYSTEM_INFO)<b><br>
+<br>
+Parameters<br>
+</b>· lpSystemInfo <br>
+[out] Pointer to a SYSTEM_INFO structure that receives the information. <br>
+<b><br>
+Return Values<br>
+</b>This function does not return a value.<br>
+<b><br>
+Example(s)<br>
+</b>WOW64 Process\WOW64 Process Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetProfilesDirectory</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetProfilesDirectory Lib &quot;userenv.dll&quot; Alias 
+&quot;GetProfilesDirectoryA&quot; (ByVal lpProfileDir As String, lpcchSize As Long) As 
+Boolean<br>
+<b><br>
+Parameters<br>
+</b>· lpProfilesDir<br>
+[out] Pointer to the buffer that receives the path to the profiles directory.<br>
+<br>
+· lpcchSize<br>
+[in/out] Specifies the size of the lpProfilesDir buffer, in TCHARs.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>User Directories\User Directory Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetSysColor</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetSysColor Lib &quot;user32&quot; Alias &quot;GetSysColor&quot; (ByVal nIndex 
+As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· nIndex<br>
+Specifies the display element whose color is to be retrieved. This parameter 
+must be one of the following values:<br>
+COLOR_3DDKSHADOW<br>
+Dark shadow for three-dimensional display elements.<br>
+COLOR_3DFACE,<br>
+COLOR_BTNFACE<br>
+Face color for three-dimensional display elements.<br>
+COLOR_3DHILIGHT, COLOR_3DHIGHLIGHT, COLOR_BTNHILIGHT, COLOR_BTNHIGHLIGHT<br>
+Highlight color for three-dimensional display elements (for edges facing the 
+light source.)<br>
+COLOR_3DLIGHT<br>
+Light color for three-dimensional display elements (for edges facing the light 
+source.)<br>
+COLOR_3DSHADOW, COLOR_BTNSHADOW<br>
+Shadow color for three-dimensional display elements (for edges facing away from 
+the light source).<br>
+COLOR_ACTIVEBORDER<br>
+Active window border.<br>
+COLOR_ACTIVECAPTION<br>
+Active window caption.<br>
+COLOR_APPWORKSPACE<br>
+Background color of multiple document interface (MDI) applications.<br>
+COLOR_BACKGROUND, COLOR_DESKTOP<br>
+Desktop.<br>
+COLOR_BTNTEXT<br>
+Text on push buttons.<br>
+COLOR_CAPTIONTEXT<br>
+Text in caption, size box, and scroll bar arrow box.<br>
+COLOR_GRAYTEXT<br>
+Grayed (disabled) text. This color is set to 0 if the current display driver 
+does not support a solid gray color.<br>
+COLOR_HIGHLIGHT<br>
+Item(s) selected in a control.<br>
+COLOR_HIGHLIGHTTEXT<br>
+Text of item(s) selected in a control.<br>
+COLOR_INACTIVEBORDER<br>
+Inactive window border.<br>
+COLOR_INACTIVECAPTION<br>
+Inactive window caption.<br>
+COLOR_INACTIVECAPTIONTEXT<br>
+Color of text in an inactive caption.<br>
+COLOR_INFOBK<br>
+Background color for tooltip controls.<br>
+COLOR_INFOTEXT<br>
+Text color for tooltip controls.<br>
+COLOR_MENU<br>
+Menu background.<br>
+COLOR_MENUTEXT<br>
+Text in menus.<br>
+COLOR_SCROLLBAR<br>
+Scroll bar gray area.<br>
+COLOR_WINDOW<br>
+Window background.<br>
+COLOR_WINDOWFRAME<br>
+Window frame.<br>
+COLOR_WINDOWTEXT<br>
+Text in windows.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is the red, green, blue (RGB) 
+color value that specifies the color of the given element. <br>
+<b><br>
+Example(s)<br>
+</b>System Colors\Sys Colors Demo.vbp<br>
+Sys Color\Sys Color Demo.vbp<br>
+Class Info\Class Info Demo.vbp<br>
+Text Effect\Text Effext Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetSystemDirectory</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetSystemDirectory Lib &quot;kernel32&quot; Alias 
+&quot;GetSystemDirectoryA&quot; (ByVal lpBuffer As String, ByVal nSize As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpBuffer<br>
+Points to the buffer to receive the null-terminated string containing the path. 
+This path does not end with a backslash unless the system directory is the root 
+directory. For example, if the system directory is named WINDOWS\SYSTEM on drive 
+C, the path of the system directory retrieved by this function is 
+C:\WINDOWS\SYSTEM.<br>
+<br>
+· uSize<br>
+Specifies the maximum size of the buffer, in characters. This value should be 
+set to at least MAX_PATH.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is the length, in characters, of 
+the string copied to the buffer, not including the terminating null character. 
+If the length is greater than the size of the buffer, the return value is the 
+size of the buffer required to hold the path. <br>
+<b><br>
+Example(s)<br>
+</b>System Directory\System Directory Demo.vbp<br>
+Open With Dialog\Open With Dialog Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font size="4" face="Comic Sans MS">GetSystemInfo</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Sub GetSystemInfo Lib &quot;kernel32&quot; Alias &quot;GetSystemInfo&quot; (lpSystemInfo 
+As SYSTEM_INFO)<br>
+<b><br>
+Parameters<br>
+</b>· lpSystemInfo<br>
+Points to a SYSTEM_INFO structure to be filled in by this function.<br>
+<b><br>
+Return Values<br>
+</b>This function does not return a value.<br>
+<b><br>
+Example(s)<br>
+</b>System Information\Sys Info Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font size="4" face="Comic Sans MS">GetSystemMetrics</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetSystemMetrics Lib &quot;user32&quot; Alias &quot;GetSystemMetrics&quot; (ByVal 
+nIndex As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· nIndex<br>
+Specifies the system metric or configuration setting to retrieve. All SM_CX* 
+values are widths. All SM_CY* values are heights. The following values are 
+defined:<br>
+SM_ARRANGE<br>
+Flags specifying how the system arranged minimized windows. For more information 
+about minimized windows, see the following Remarks section.<br>
+SM_CLEANBOOT<br>
+Value that specifies how the system was started:<br>
+0 Normal boot<br>
+1 Fail-safe boot<br>
+2 Fail-safe with network boot<br>
+Fail-safe boot (also called SafeBoot) bypasses the user’s startup files.<br>
+SM_CMOUSEBUTTONS<br>
+Number of buttons on mouse, or zero if no mouse is installed.<br>
+SM_CXBORDER,<br>
+SM_CYBORDER<br>
+The width and height, in pixels, of a window border. This is equivalent to the 
+SM_CXEDGE value for windows with the 3-D look.<br>
+SM_CXCURSOR,<br>
+SM_CYCURSOR<br>
+Width and height, in pixels, of a cursor. These are the cursor dimensions 
+supported by the current display driver. The system cannot create cursors of 
+other sizes.<br>
+SM_CXDLGFRAME,<br>
+SM_CYDLGFRAME<br>
+Same as SM_CXFIXEDFRAME and SM_CYFIXEDFRAME.<br>
+SM_CXDOUBLECLK,<br>
+SM_CYDOUBLECLK<br>
+Width and height, in pixels, of the rectangle around the location of a first 
+click in a double-click sequence. The second click must occur within this 
+rectangle for the system to consider the two clicks a double-click. (The two 
+clicks must also occur within a specified time.)<br>
+SM_CXDRAG,<br>
+SM_CYDRAG<br>
+Width and height, in pixels, of a rectangle centered on a drag point to allow 
+for limited movement of the mouse pointer before a drag operation begins. This 
+allows the user to click and release the mouse button easily without 
+unintentionally starting a drag operation.<br>
+SM_CXEDGE,<br>
+SM_CYEDGE<br>
+Dimensions, in pixels, of a 3-D border. These are the 3-D counterparts of 
+SM_CXBORDER and SM_CYBORDER.<br>
+SM_CXFIXEDFRAME,<br>
+SM_CYFIXEDFRAME<br>
+Thickness, in pixels, of the frame around the perimeter of a window that has a 
+caption but is not sizable. SM_CXFIXEDFRAME is the width of the horizontal 
+border and SM_CYFIXEDFRAME is the height of the vertical border.<br>
+Same as SM_CXDLGFRAME and SM_CYDLGFRAME.<br>
+SM_CXFRAME,<br>
+SM_CYFRAME<br>
+Same as SM_CXSIZEFRAME and SM_CYSIZEFRAME.<br>
+SM_CXFULLSCREEN, SM_CYFULLSCREEN<br>
+Width and height of the client area for a full-screen window. To get the 
+coordinates of the portion of the screen not obscured by the tray, call the 
+SystemParametersInfo function with the SPI_GETWORKAREA value.<br>
+SM_CXHSCROLL, SM_CYHSCROLL<br>
+Width, in pixels, of the arrow bitmap on a horizontal scroll bar; and height, in 
+pixels, of a horizontal scroll bar.<br>
+SM_CXHTHUMB<br>
+Width, in pixels, of the thumb box in a horizontal scroll bar.<br>
+SM_CXICON,<br>
+SM_CYICON<br>
+The default width and height, in pixels, of an icon. These values are typically 
+32x32, but can vary depending on the installed display hardware.<br>
+The LoadIcon function can only load icons of these dimensions.<br>
+SM_CXICONSPACING, SM_CYICONSPACING<br>
+Dimensions, in pixels, of a grid cell for items in large icon view. Each item 
+fits into a rectangle of this size when arranged. These values are always 
+greater than or equal to SM_CXICON and SM_CYICON.<br>
+SM_CXMAXIMIZED,<br>
+SM_CYMAXIMIZED<br>
+Default dimensions, in pixels, of a maximized top-level window.<br>
+SM_CXMAXTRACK,<br>
+SM_CYMAXTRACK<br>
+Default maximum dimensions, in pixels, of a window that has a caption and sizing 
+borders. The user cannot drag the window frame to a size larger than these 
+dimensions. A window can override these values by processing the 
+WM_GETMINMAXINFO message.<br>
+SM_CXMENUCHECK,<br>
+SM_CYMENUCHECK<br>
+Dimensions, in pixels, of the default menu check-mark bitmap.<br>
+SM_CXMENUSIZE,<br>
+SM_CYMENUSIZE<br>
+Dimensions, in pixels, of menu bar buttons, such as multiple document (MIDI) 
+child close.<br>
+SM_CXMIN,<br>
+SM_CYMIN<br>
+Minimum width and height, in pixels, of a window.<br>
+SM_CXMINIMIZED,<br>
+SM_CYMINIMIZED<br>
+Dimensions, in pixels, of a normal minimized window.<br>
+SM_CXMINSPACING<br>
+SM_CYMINSPACING<br>
+Dimensions, in pixels, of a grid cell for minimized windows. Each minimized 
+window fits into a rectangle this size when arranged. These values are always 
+greater than or equal to SM_CXMINIMIZED and SM_CYMINIMIZED.<br>
+SM_CXMINTRACK, SM_CYMINTRACK<br>
+Minimum tracking width and height, in pixels, of a window. The user cannot drag 
+the window frame to a size smaller than these dimensions. A window can override 
+these values by processing the WM_GETMINMAXINFO message.<br>
+SM_CXSCREEN,<br>
+SM_CYSCREEN<br>
+Width and height, in pixels, of the screen.<br>
+SM_CXSIZE,<br>
+SM_CYSIZE<br>
+Width and height, in pixels, of a button in a window's caption or title bar.<br>
+SM_CXSIZEFRAME,<br>
+SM_CYSIZEFRAME<br>
+Thickness, in pixels, of the sizing border around the perimeter of a window that 
+can be resized. SM_CXSIZEFRAME is the width of the horizontal border and 
+SM_CYSIZEFRAME is the height of the vertical border.<br>
+Same as SM_CXFRAME and SM_CYFRAME.<br>
+SM_CXSMICON,<br>
+SM_CYSMICON<br>
+Recommended dimensions, in pixels, of a small icon. Small icons typically appear 
+in window captions and in small icon view.<br>
+SM_CXSMSIZE<br>
+SM_CYSMSIZE<br>
+Dimensions, in pixels, of small caption buttons.<br>
+SM_CXVSCROLL, SM_CYVSCROLL<br>
+Width, in pixels, of a vertical scroll bar; and height, in pixels, of the arrow 
+bitmap on a vertical scroll bar.<br>
+SM_CYCAPTION<br>
+Height, in pixels, of normal caption area.<br>
+SM_CYKANJIWINDOW<br>
+For double-byte character set versions of Windows, height, in pixels, of the 
+Kanji window at the bottom of the screen.<br>
+SM_CYMENU<br>
+Height, in pixels, of single-line menu bar.<br>
+SM_CYSMCAPTION<br>
+Height, in pixels, of a small caption.<br>
+SM_CYVTHUMB<br>
+Height , in pixels, of the thumb box in a vertical scroll bar.<br>
+SM_DBCSENABLED<br>
+TRUE or nonzero if the double-byte character set (DBCS) version of USER.EXE is 
+installed; FALSE, or zero otherwise.<br>
+SM_DEBUG<br>
+TRUE or nonzero if the debugging version of USER.EXE is installed; FALSE, or 
+zero, otherwise.<br>
+SM_MENUDROPALIGNMENT<br>
+TRUE, or nonzero if drop-down menus are right-aligned relative to the 
+corresponding menu-bar item; FALSE, or zero if they are left-aligned.<br>
+SM_MIDEASTENABLED<br>
+TRUE if the system is enabled for Hebrew/Arabic languages.<br>
+SM_MOUSEPRESENT<br>
+TRUE or nonzero if a mouse is installed; FALSE, or zero, otherwise.<br>
+SM_MOUSEWHEELPRESENT<br>
+Windows NT only: TRUE or nonzero if a mouse with a wheel is installed; FALSE, or 
+zero, otherwise.<br>
+SM_NETWORK<br>
+The least significant bit is set if a network is present; otherwise, it is 
+cleared. The other bits are reserved for future use.<br>
+SM_PENWINDOWS<br>
+TRUE or nonzero if the Microsoft Windows for Pen computing extensions are 
+installed; zero, or FALSE, otherwise.<br>
+SM_SECURE<br>
+TRUE if security is present, FALSE otherwise.<br>
+SM_SHOWSOUNDS<br>
+TRUE or nonzero if the user requires an application to present information 
+visually in situations where it would otherwise present the information only in 
+audible form; FALSE, or zero, otherwise.<br>
+SM_SLOWMACHINE<br>
+TRUE if the computer has a low-end (slow) processor, FALSE otherwise.<br>
+SM_SWAPBUTTON<br>
+TRUE or nonzero if the meanings of the left and right mouse buttons are swapped; 
+FALSE, or zero, otherwise.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is the requested system metric or 
+configuration setting. <br>
+<br>
+If the function fails, the return value is zero. GetLastError does not provide 
+extended error information. <br>
+<b><br>
+Example(s)<br>
+</b>System Metrics\Sys Metrics Demo.vbp<br>
+Auto Click\Auto Click Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetSystemPowerStatus</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetSystemPowerStatus Lib &quot;kernel32&quot; Alias &quot;GetSystemPowerStatus&quot; 
+(lpSystemPowerStatus As SYSTEM_POWER_STATUS) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpSystemPowerStatus<br>
+Pointer to a SYSTEM_POWER_STATUS structure that receives status information.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>System Power Status\Sys Power Status Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetTempPath</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetTempPath Lib &quot;kernel32&quot; Alias &quot;GetTempPathA&quot; (ByVal 
+nBufferLength As Long, ByVal lpBuffer As String) As Long<br>
+<b><br>
+Parameters<br>
+</b>· nBufferLength<br>
+Specifies the size, in characters, of the string buffer identified by lpBuffer.<br>
+<br>
+· lpBuffer<br>
+Points to a string buffer that receives the null-terminated string specifying 
+the temporary file path.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is the length, in characters, of 
+the string copied to lpBuffer, not including the terminating null character. If 
+the return value is greater than nBufferLength, the return value is the size of 
+the buffer required to hold the path. <br>
+<b><br>
+Example(s)<br>
+</b>Window(s) Information\Win Information Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><b><u><font face="Comic Sans MS" size="4">GetTextMetrics</font></u></b></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetTextMetrics Lib &quot;gdi32&quot; Alias &quot;GetTextMetricsA&quot; (ByVal 
+hdc As Long, lpMetrics As TEXTMETRIC) As Long<br>
+<b><br>
+Parameters<br>
+</b>· hdc<br>
+Identifies the device context.<br>
+<br>
+· lptm<br>
+Points to the TEXTMETRIC structure that is to receive the metrics.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>Using Small Fonts\Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font size="4" face="Comic Sans MS">GetUserName</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetUserName Lib &quot;advapi32.dll&quot; Alias &quot;GetUserNameA&quot; (ByVal 
+lpBuffer As String, nSize As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpBuffer<br>
+Points to the buffer to receive the null-terminated string containing the user’s 
+logon name. If this buffer is not large enough to contain the entire user name, 
+the function fails.<br>
+<br>
+· nSize<br>
+Pointer to a DWORD that, on input, specifies the maximum size, in characters, of 
+the buffer specified by the lpBuffer parameter. If this buffer is not large 
+enough to contain the entire user name, the function fails. If the function 
+succeeds, it will place the number of characters copied to the buffer into the 
+DWORD that nSize points to.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero, and the variable 
+pointed to by nSize contains the number of characters copied to the buffer 
+specified by lpBuffer, including the terminating null character. <br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError. <br>
+<b><br>
+Example(s)<br>
+</b>Window(s) Information\Win Information Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font size="4" face="Comic Sans MS">GetUserNameEx</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetUserNameEx Lib &quot;secur32.dll&quot; Alias &quot;GetUserNameExA&quot; (ByVal 
+NameFormat As EXTENDED_NAME_FORMAT, ByVal lpNameBuffer As String, ByRef nSize As 
+Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· NameFormat <br>
+[in] Value from the EXTENDED_NAME_FORMAT enumeration type indicating the desired 
+name format. This value cannot be NameUnknown. <br>
+<br>
+· lpNameBuffer <br>
+[out] Pointer to a buffer that receives the name in the specified format. <br>
+<br>
+· nSize <br>
+[in/out] On input, specifies the size, in TCHARs, of the lpNameBuffer buffer. On 
+output, receives the size of the returned string, including the terminating null 
+character. <br>
+If the lpNameBuffer buffer is too small, the function fails GetLastError returns 
+ERROR_MORE_DATA. The nSize parameter receives the required buffer size. <br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is a nonzero value.<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError. <br>
+If the user name is not available in the specified format, the error is 
+ERROR_NONE_MAPPED. If the domain controller is not available to perform the 
+lookup, the error is ERROR_NO_SUCH_DOMAIN. <br>
+<b><br>
+Example(s)<br>
+</b>User Name Extended\User Name Ex Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetUserProfileDirectory</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetUserProfileDirectory Lib &quot;userenv.dll&quot; Alias &quot;GetUserProfileDirectoryA&quot; 
+(ByVal hToken As Long, ByVal lpProfileDir As String, lpcchSize As Long) As 
+Boolean<br>
+<b><br>
+Parameters<br>
+</b>· hToken<br>
+[in] Token for the user, which is returned by the LogonUser, 
+CreateRestrictedToken, DuplicateToken, OpenProcessToken, or OpenThreadToken 
+function. The token must have TOKEN_QUERY access.<br>
+<br>
+· lpProfileDir<br>
+[out] Pointer to the buffer that receives the path to the specified user's 
+profile directory.<br>
+<br>
+· lpcchSize<br>
+[in/out] Specifies the size of the lpProfilesDir buffer, in TCHARs.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>User Directories\User Directory Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font size="4" face="Comic Sans MS">GetVersion</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetVersion Lib &quot;kernel32&quot; Alias &quot;GetVersion&quot; () As Long<br>
+<b><br>
+Parameters<br>
+</b>No parameter needed for this API.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is a DWORD value that contains 
+the major and minor version numbers of Windows in the low order word, and 
+information about the operating system platform in the high order word. <br>
+<b><br>
+Example(s)<br>
+</b>Get Windows Version\Get Win Ver Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetVersionEx</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetVersionEx Lib &quot;kernel32&quot; Alias &quot;GetVersionExA&quot; (ByVal 
+lpVersionInformation As OSVERSIONINFO) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpVersionInformation<br>
+Pointer to an OSVERSIONINFO data structure that the function fills with 
+operating system version information.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero. <br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError. The function fails if you specify an invalid 
+value for the dwOSVersionInfoSize member of the OSVERSIONINFO structure. <br>
+<b><br>
+Example(s)<br>
+</b>Windows Version\Win Ver Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">GetWindowsDirectory</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function GetWindowsDirectory Lib &quot;kernel32&quot; Alias &quot;GetWindowsDirectoryA&quot; 
+(ByVal lpBuffer As String, ByVal nSize As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpBuffer<br>
+Points to the buffer to receive the null-terminated string containing the path. 
+This path does not end with a backslash unless the Windows directory is the root 
+directory. For example, if the Windows directory is named WINDOWS on drive C, 
+the path of the Windows directory retrieved by this function is C:\WINDOWS. If 
+Windows was installed in the root directory of drive C, the path retrieved is 
+C:\.<br>
+<br>
+· uSize<br>
+Specifies the maximum size, in characters, of the buffer specified by the 
+lpBuffer parameter. This value should be set to at least MAX_PATH to allow 
+sufficient room in the buffer for the path.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is the length, in characters, of 
+the string copied to the buffer, not including the terminating null character.
+<br>
+<br>
+If the length is greater than the size of the buffer, the return value is the 
+size of the buffer required to hold the path. <br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError. <br>
+<b><br>
+Example(s)<br>
+</b>Icons\Icons Demo.vbp<br>
+Change Cursor\Change Cur.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">IsProcessorFeaturePresent</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function IsProcessorFeaturePresent Lib &quot;kernel32.dll&quot; (ByVal 
+ProcessorFeature As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· ProcessorFeature <br>
+[in] Specifies the processor feature to be tested. This parameter can be one of 
+the following values.<br>
+<br>
+PF_FLOATING_POINT_PRECISION_ERRATA <br>
+In rare circumstances, a floating-point precision error can occur (Pentium). <br>
+PF_FLOATING_POINT_EMULATED <br>
+Floating-point operations are emulated using a software emulator. <br>
+Windows 2000/XP: This function returns a nonzero value if floating-point 
+operations are emulated; otherwise, it returns zero.<br>
+Windows NT 4.0: This function returns zero if floating-point operations are 
+emulated; otherwise, it returns a nonzero value. This behavior is a bug that is 
+fixed in later versions.<br>
+PF_COMPARE_EXCHANGE_DOUBLE <br>
+The compare and exchange double operation is available (Pentium, MIPS, and 
+Alpha). <br>
+PF_MMX_INSTRUCTIONS_AVAILABLE <br>
+The MMX instruction set is available. <br>
+PF_XMMI_INSTRUCTIONS_AVAILABLE <br>
+The XMMI instruction set is available. <br>
+PF_3DNOW_INSTRUCTIONS_AVAILABLE <br>
+The 3D-Now instruction set is available. <br>
+PF_RDTSC_INSTRUCTION_AVAILABLE <br>
+The RDTSC instruction is available. <br>
+PF_PAE_ENABLED <br>
+The processor is PAE-enabled.<br>
+<b><br>
+Return Values<br>
+</b>If feature is supported, the return value is a nonzero value. <br>
+<br>
+If the feature is not supported, the return value is zero.<br>
+<b><br>
+Example(s)<br>
+</b>Processor Features\Features Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">IsSystemResumeAutomatic</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function IsSystemResumeAutomatic Lib &quot;kernel32&quot; () As Long<br>
+<b><br>
+Parameters<br>
+</b>There are no parameter for this API.<br>
+<b><br>
+Return Values<br>
+</b>If the system was restored to the working state automatically and the user 
+is not active, the function returns TRUE. Otherwise, the function returns FALSE.<br>
+<b><br>
+Example(s)<br>
+</b>System Resume\Sys Resume Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">IsWow64Process</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function IsWow64Process Lib &quot;kernel32&quot; (ByVal hProcess As Long, 
+ByRef Wow64Process As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· hProcess <br>
+[in] Handle to a process. <br>
+<br>
+· Wow64Process <br>
+[out] Pointer to a value that is set to TRUE if the process is running under 
+WOW64. Otherwise, the value is set to FALSE. <br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>WOW64 Process\WOW64 Process Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">LookupAccountName</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function LookupAccountName Lib &quot;advapi32.dll&quot; Alias &quot;LookupAccountNameA&quot; 
+(lpSystemName As String, ByVal lpAccountName As String, sid As Any, cbSid As 
+Long, ByVal ReferencedDomainName As String, cbReferencedDomainName As Long, 
+peUse As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpSystemName<br>
+[in] Pointer to a null-terminated string specifying the system. This string can 
+be the name of a remote computer. If this string is NULL, the account name is 
+looked up on the local system.<br>
+<br>
+· lpAccountName<br>
+[in] Pointer to a null-terminated string specifying the account name.<br>
+<br>
+· Sid<br>
+[out] Pointer to a buffer receiving the SID structure that corresponds to the 
+account name pointed to by the lpAccountName parameter. If this parameter is 
+NULL, the function returns the required buffer size.<br>
+<br>
+· cbSid<br>
+[in/out] Pointer to a variable. On input, this value specifies the size, in 
+bytes, of the Sid buffer. If the function fails because the buffer is too small, 
+this variable receives the required buffer size. If the Sid parameter is NULL, 
+this parameter must be zero.<br>
+<br>
+· DomainName<br>
+[out] Pointer to a buffer receiving the name of the domain where the account 
+name is found. If this parameter is NULL, the function returns the required 
+buffer size.<br>
+<br>
+· cbDomainName<br>
+[in/out] Pointer to a variable. On input, this value specifies the size, in 
+TCHARs, of the DomainName buffer. If the function fails because the buffer is 
+too small, this variable receives the required buffer size, including the 
+terminating null character. If the DomainName parameter is NULL, this parameter 
+must be zero.<br>
+<br>
+· peUse<br>
+[out] Pointer to a SID_NAME_USE enumerated type indicating the type of the 
+account when the function returns.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>NTFS Permissions\NTFS Permissions Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">SetComputerName</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function SetComputerName Lib &quot;kernel32&quot; Alias &quot;SetComputerNameA&quot; (ByVal 
+lpComputerName As String) As Long<br>
+<b><br>
+Parameters<br>
+</b>· lpComputerName<br>
+Points to a null-terminated character string that specifies the name that will 
+be the computer name the next time the computer is started. The name must not be 
+longer than MAX_COMPUTERNAME_LENGTH characters.<br>
+Windows 95: If this string contains one or more characters that are outside the 
+standard character set, those characters are coerced into standard characters.<br>
+Windows NT: If this string contains one or more characters that are outside the 
+standard character set, SetComputerName returns ERROR_INVALID_PARAMETER. It does 
+not coerce the characters outside the standard set.<br>
+The standard character set includes letters, numbers, and the following symbols: 
+! @ # $ % ^ &amp; ‘ ) ( . - _ { } ~ .<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>Set Computer Name\Set Computer Name Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">SetSysColors</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function SetSysColors Lib &quot;user32&quot; Alias &quot;SetSysColors&quot; (ByVal 
+nChanges As Long, lpSysColor As Long, lpColorValues As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· cElements<br>
+Specifies the number of display elements in the array pointed to by the 
+lpaElements parameter.<br>
+<br>
+· lpaElements<br>
+Points to an array of integers that specify the display elements to be changed. 
+For a list of display elements, see the GetSysColor function.<br>
+<br>
+· lpaRgbValues<br>
+Points to an array of unsigned long integers that contains the new red, green, 
+blue (RGB) color value for each display element in the array pointed to by the 
+lpaElements parameter.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>System Colors\Sys Colors Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">SHGetSpecialFolderLocation</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function SHGetSpecialFolderLocation Lib &quot;shell32.dll&quot; (ByVal 
+hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long<br>
+<b><br>
+Parameters<br>
+</b>· hwndOwner<br>
+Handle of the owner window that the client should specify if it displays a 
+dialog box or message box.<br>
+<br>
+· nFolder<br>
+Value specifying the folder to retrieve the location of. This parameter can be 
+one of the following values:<br>
+CSIDL_BITBUCKET<br>
+Recycle bin ¾ file system directory containing file objects in the user’s 
+recycle bin. The location of this directory is not in the registry; it is marked 
+with the hidden and system attributes to prevent the user from moving or 
+deleting it.<br>
+CSIDL_COMMON_DESKTOP<br>
+File system directory that contains files and folders that appear on the desktop 
+for all users.<br>
+CSIDL_COMMON_PROGRAMS<br>
+File system directory that contains the directories for the common program 
+groups that appear on the Start menu for all users.<br>
+CSIDL_COMMON_STARTMENU<br>
+File system directory that contains the programs and folders that appear on the 
+Start menu for all users.<br>
+CSIDL_COMMON_STARTUP<br>
+File system directory that contains the programs that appear in the Startup 
+folder for all users. The system starts these programs whenever any user logs on 
+to Windows NT or starts up Windows 95.<br>
+CSIDL_CONTROLS<br>
+Control Panel ¾ virtual folder containing icons for the control panel 
+applications.<br>
+CSIDL_DESKTOP<br>
+Windows desktop ¾ virtual folder at the root of the name space.<br>
+CSIDL_DESKTOPDIRECTORY<br>
+File system directory used to physically store file objects on the desktop (not 
+to be confused with the desktop folder itself).<br>
+CSIDL_DRIVES<br>
+My Computer ¾ virtual folder containing everything on the local computer: 
+storage devices, printers, and Control Panel. The folder may also contain mapped 
+network drives.<br>
+CSIDL_FONTS<br>
+Virtual folder containing fonts.<br>
+CSIDL_NETHOOD<br>
+File system directory containing objects that appear in the network 
+neighborhood.<br>
+CSIDL_NETWORK<br>
+Network Neighborhood ¾ virtual folder representing the top level of the network 
+hierarchy.<br>
+CSIDL_PERSONAL<br>
+File system directory that serves as a common respository for documents.<br>
+CSIDL_PRINTERS<br>
+Printers folder ¾ virtual folder containing installed printers.<br>
+CSIDL_PROGRAMS<br>
+File system directory that contains the user’s program groups (which are also 
+file system directories).<br>
+CSIDL_RECENT<br>
+File system directory that contains the user’s most recently used documents.<br>
+CSIDL_SENDTO<br>
+File system directory that contains Send To menu items.<br>
+CSIDL_STARTMENU<br>
+File system directory containing Start menu items.<br>
+CSIDL_STARTUP<br>
+File system directory that corresponds to the user’s Startup program group.<br>
+CSIDL_TEMPLATES<br>
+File system directory that serves as a common repository for document templates.<br>
+<br>
+· ppidl<br>
+Address that receives a pointer to an item identifier list specifying the 
+folder’s location relative to the root of the name space (the desktop).<br>
+<b><br>
+Return Values<br>
+</b>Returns NOERROR if successful or an OLE-defined error result otherwise. <br>
+<b><br>
+Example(s)<br>
+</b>Special Folder\Special Folder Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+<p><u><b><font face="Comic Sans MS" size="4">SystemParametersInfo</font></b></u></p>
+<p><font face="Comic Sans MS"><b>Declaration<br>
+</b>Declare Function SystemParametersInfo Lib &quot;user32&quot; Alias &quot;SystemParametersInfoA&quot; 
+(ByVal uAction As Long, ByVal uParam As Long, ByVal lpvParam As Any, ByVal 
+fuWinIni As Long) As Long<br>
+<b><br>
+Parameters<br>
+</b>· uiAction<br>
+Specifies the systemwide parameter to query or set. This parameter can be one of 
+the following values:<br>
+SPI_GETACCESSTIMEOUT<br>
+Retrieves information about the time-out period associated with the 
+accessibility features. The pvParam parameter must point to an ACCESSTIMEOUT 
+structure that receives the information. Set the cbSize member of this structure 
+and the uiParam parameter to sizeof(ACCESSTIMEOUT).<br>
+SPI_GETANIMATION<br>
+Retrieves the animation effects associated with user actions. The pvParam 
+parameter must point to an ANIMATIONINFO structure that receives the 
+information. Set the cbSize member of this structure and the uiParam parameter 
+to sizeof(ANIMATIONINFO).<br>
+SPI_GETBEEP<br>
+Indicates whether the warning beeper is on.<br>
+The pvParam parameter is a pointer to a BOOL that receives TRUE if the beeper is 
+on, or FALSE if it is off.<br>
+SPI_GETBORDER<br>
+Retrieves the border multiplier factor that determines the width of a window’s 
+sizing border. The pvParam parameter must point to an integer variable.<br>
+SPI_GETDEFAULTINPUTLANG<br>
+Returns the keyboard layout handle for the system default input language. The 
+pvParam parameter must point to the 32-bit variable that receives the keyboard 
+layout handle for the default language. The uiParam parameter is not used.<br>
+SPI_GETDRAGFULLWINDOWS<br>
+Determines whether dragging of full windows is enabled. The pvParam parameter 
+must point to a BOOL variable that receives TRUE if enabled, or FALSE otherwise.<br>
+Windows 95: This flag is supported only if Windows Plus! is installed. See 
+SPI_GETWINDOWSEXTENSION.<br>
+SPI_GETFASTTASKSWITCH<br>
+This flag is obsolete. Previous versions of Windows use this flag to determine 
+whether ALT+TAB fast task switching is enabled. Beginning with Windows 95 and 
+Windows NT version 4.0, fast task switching is always enabled.<br>
+SPI_GETFILTERKEYS<br>
+Retrieves information about the FilterKeys accessibility feature. The pvParam 
+parameter must point to a FILTERKEYS structure that receives the information. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(FILTERKEYS).<br>
+SPI_GETFONTSMOOTHING<br>
+Indicates whether the font smoothing feature is enabled. This feature uses font 
+anti-aliasing to make font curves appear smoother by painting pixels at 
+different gray levels.<br>
+The pvParam parameter is a pointer to a BOOL variable that receives TRUE if the 
+feature is enabled, or FALSE if it is not.<br>
+Windows 95: This flag is supported only if Windows Plus! is installed. See 
+SPI_GETWINDOWSEXTENSION.<br>
+SPI_GETGRIDGRANULARITY<br>
+Retrieves the current granularity value of the desktop sizing grid. The pvParam 
+parameter must point to an integer variable that receives the granularity.<br>
+SPI_GETHIGHCONTRAST<br>
+Windows 95 only: Retrieves information about the HighContrast accessibility 
+feature. The pvParam parameter must point to a HIGHCONTRAST structure that 
+receives the information. Set the cbSize member of this structure and the 
+uiParam parameter to sizeof(HIGHCONTRAST).<br>
+SPI_GETICONMETRICS<br>
+Retrieves the metrics associated with icons. The pvParam parameter must point to 
+an ICONMETRICS structure that receives the information. Set the cbSize member of 
+this structure and the uiParam parameter to sizeof(ICONMETRICS).<br>
+SPI_GETICONTITLELOGFONT<br>
+Retrieves the logical font information for the current icon-title font. The 
+uiParam parameter specifies the size of a LOGFONT structure, and the pvParam 
+parameter must point to the LOGFONT structure to fill in.<br>
+SPI_GETICONTITLEWRAP<br>
+Determines whether icon-title wrapping is enabled. The pvParam parameter must 
+point to a BOOL variable that receives TRUE if enabled, or FALSE otherwise.<br>
+SPI_GETKEYBOARDDELAY<br>
+Retrieves the keyboard repeat-delay setting. The pvParam parameter must point to 
+an integer variable that receives the setting.<br>
+SPI_GETKEYBOARDPREF<br>
+Determines whether the user relies on the keyboard instead of the mouse, and 
+wants applications to display keyboard interfaces that would otherwise be 
+hidden. The pvParam parameter must point to a BOOL variable that receives TRUE 
+if the user relies on the keyboard; the variable receives FALSE otherwise.<br>
+SPI_GETKEYBOARDSPEED<br>
+Retrieves the keyboard repeat-speed setting. The pvParam parameter must point to 
+a DWORD variable that receives the setting.<br>
+SPI_GETLOWPOWERACTIVE<br>
+This flag is not supported for 32-bit applications on Windows NT or Windows 95.<br>
+Windows 95 only: For 16-bit Windows applications, this value determines whether 
+the low-power phase of screen saving is enabled or not. The pvParam parameter 
+must point to a BOOL variable that receives TRUE if enabled, or FALSE if 
+disabled.<br>
+SPI_GETLOWPOWERTIMEOUT<br>
+This flag is not supported for 32-bit applications on Windows NT or Windows 95.<br>
+Windows 95 only: For 16-bit Windows applications, this value retrieves the 
+time-out value for the low-power phase of screen saving. The pvParam parameter 
+must point to an integer value that receives the value.<br>
+SPI_GETMENUDROPALIGNMENT<br>
+Determines whether pop-up menus are left-aligned or right-aligned, relative to 
+the corresponding menu-bar item. The pvParam parameter must point to a BOOL 
+variable that receives TRUE if left-aligned, or FALSE otherwise.<br>
+SPI_GETMINIMIZEDMETRICS<br>
+Retrieves the metrics associated with minimized windows. The pvParam parameter 
+must point to a MINIMIZEDMETRICS structure that receives the information. Set 
+the cbSize member of this structure and the uiParam parameter to 
+sizeof(MINIMIZEDMETRICS).<br>
+SPI_GETMOUSE<br>
+Retrieves the two mouse threshold values and the mouse speed. The pvParam 
+parameter must point to an array of three integers that receives these values. 
+See mouse_event for further information.<br>
+SPI_GETMOUSEHOVERHEIGHT<br>
+Windows NT only: Gets the height, in pixels, of the rectangle within which the 
+mouse pointer has to stay for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. The height is returned in a UINT pointed to by the pvParam parameter.<br>
+SPI_GETMOUSEHOVERTIME<br>
+Windows NT only: Gets the time, in milliseconds, that the mouse pointer has to 
+stay in the hover rectangle for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. The time is returned in a UINT pointed to by the pvParam parameter.<br>
+SPI_GETMOUSEHOVERWIDTH<br>
+Windows NT only: Gets the width, in pixels, of the rectangle within which the 
+mouse pointer has to stay for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. The width is returned in a UINT pointed to by the pvParam parameter.<br>
+SPI_GETMOUSEKEYS<br>
+Retrieves information about the MouseKeys accessibility feature. The pvParam 
+parameter must point to a MOUSEKEYS structure that receives the information. Set 
+the cbSize member of this structure and the uiParam parameter to 
+sizeof(MOUSEKEYS).<br>
+SPI_GETMOUSETRAILS<br>
+Windows 95 only: Indicates whether the Mouse Trails feature is enabled. This 
+feature improves the visibility of mouse cursor movements by briefly showing a 
+trail of cursors and quickly erasing them.<br>
+The pvParam parameter is a pointer to an INT variable that receives a value. If 
+the value is zero or 1, the feature is disabled. If the value is greater than 1, 
+the feature is enabled and the value indicates the number of cursors drawn in 
+the trail. The uiParam parameter is not used.<br>
+SPI_GETNONCLIENTMETRICS<br>
+Retrieves the metrics associated with the nonclient area of nonminimized 
+windows. The pvParam parameter must point to a NONCLIENTMETRICS structure that 
+receives the information. Set the cbSize member of this structure and the 
+uiParam parameter to sizeof(NONCLIENTMETRICS).<br>
+SPI_GETPOWEROFFACTIVE<br>
+This flag is not supported for 32-bit applications on Windows NT or Windows 95.<br>
+Windows 95 only: For 16-bit Windows applications, this value determines whether 
+the power-off phase of screen saving is enabled or not. The pvParam parameter 
+must point to a BOOL variable that receives TRUE if enabled, or FALSE if 
+disabled.<br>
+SPI_GETPOWEROFFTIMEOUT<br>
+This flag is not supported for 32-bit applications on Windows NT or Windows 95.<br>
+Windows 95 only: For 16-bit Windows applications, this value retrieves the 
+time-out value for the power-off phase of screen saving. The pvParam parameter 
+must point to an integer value that receives the value.<br>
+SPI_GETSCREENREADER<br>
+Windows 95 only: Determines whether a screen reviewer utility is running. A 
+screen reviewer utility directs textual information to an output device, such as 
+a speech synthesizer or Braille display. When this flag is set, an application 
+should provide textual information in situations where it would otherwise 
+present the information graphically.<br>
+The pvParam parameter is a pointer to a BOOL variable that receives TRUE if a 
+screen reviewer utility is running, or FALSE if it is not.<br>
+SPI_GETSCREENSAVEACTIVE<br>
+Determines whether screen saving is enabled. The pvParam parameter must point to 
+a BOOL variable that receives TRUE if enabled, or FALSE otherwise.<br>
+SPI_GETSCREENSAVETIMEOUT<br>
+Retrieves the screen saver time-out value, in seconds. The pvParam parameter 
+must point to an integer variable that receives the value.<br>
+SPI_GETSERIALKEYS<br>
+Windows 95 only: Retrieves information about the SerialKeys accessibility 
+feature. The pvParam parameter must point to a SERIALKEYS structure that 
+receives the information. Set the cbSize member of this structure and the 
+uiParam parameter to sizeof(SERIALKEYS).<br>
+SPI_GETSHOWSOUNDS<br>
+Determines whether the Show Sounds accessibility flag is on or off. If it is on, 
+the user requires an application to present information visually in situations 
+where it would otherwise present the information only in audible form. The 
+pvParam parameter must point to a BOOL variable that receives TRUE if the 
+feature is on, or FALSE if it is off.<br>
+Using this value is equivalent to calling GetSystemMetrics (SM_SHOWSOUNDS). That 
+is the recommended call.<br>
+SPI_GETSNAPTODEFBUTTON<br>
+Windows NT only: Determines whether the snap-to-default-button feature is 
+enabled. If enabled, the mouse cursor automatically moves to the default button, 
+such as “OK” or “Apply”, of a dialog box. The pvParam parameter must point to a 
+BOOL variable that receives TRUE if the feature is on, or FALSE if it is off.<br>
+SPI_GETSOUNDSENTRY<br>
+Retrieves information about the SoundSentry accessibility feature. The pvParam 
+parameter must point to a SOUNDSENTRY structure that receives the information. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(SOUNDSENTRY).<br>
+SPI_GETSTICKYKEYS<br>
+Retrieves information about the StickyKeys accessibility feature. The pvParam 
+parameter must point to a STICKYKEYS structure that receives the information. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(STICKYKEYS).<br>
+SPI_GETTOGGLEKEYS<br>
+Retrieves information about the ToggleKeys accessibility feature. The pvParam 
+parameter must point to a TOGGLEKEYS structure that receives the information. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(TOGGLEKEYS).<br>
+SPI_GETWHEELSCROLLLINES<br>
+Windows NT only: Gets the number of lines to scroll when the mouse wheel is 
+rotated. The number of lines is returned in a UINT pointed to by pvParam. The 
+default value is 3.<br>
+SPI_GETWINDOWSEXTENSION<br>
+Windows 95 only: Indicates whether the Windows extension, Windows Plus!, is 
+installed. Set the uiParam parameter to 1. The pvParam parameter is not used. 
+The function returns TRUE if the extension is installed, or FALSE if it is not.<br>
+SPI_GETWORKAREA<br>
+Retrieves the size of the working area. The working area is the portion of the 
+screen not obscured by the tray. The pvParam parameter must point to the RECT 
+structure that receives the coordinates of the working area.<br>
+SPI_ICONHORIZONTALSPACING<br>
+Sets the width of an icon cell. The uiParam parameter specifies the width, in 
+pixels.<br>
+SPI_ICONVERTICALSPACING<br>
+Sets the height of an icon cell. The uiParam parameter specifies the height, in 
+pixels.<br>
+SPI_LANGDRIVER<br>
+Not implemented.<br>
+SPI_SCREENSAVERRUNNING<br>
+Windows 95 only: Used internally; applications should not use this flag.<br>
+SPI_SETACCESSTIMEOUT<br>
+Sets the time-out period associated with the accessibility features. The pvParam 
+parameter must point to an ACCESSTIMEOUT structure that contains the new 
+parameters. Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(ACCESSTIMEOUT).<br>
+SPI_SETANIMATION<br>
+Sets the animation effects associated with user actions. The pvParam parameter 
+must point to an ANIMATIONINFO structure that contains the new parameters. Set 
+the cbSize member of this structure and the uiParam parameter to 
+sizeof(ANIMATIONINFO).<br>
+SPI_SETBEEP<br>
+Turns the warning beeper on or off. The uiParam parameter specifies TRUE for on, 
+or FALSE for off.<br>
+SPI_SETBORDER<br>
+Sets the border multiplier factor that determines the width of a window’s sizing 
+border. The uiParam parameter specifies the new value.<br>
+SPI_SETDEFAULTINPUTLANG<br>
+Sets the default input language for the system shell and applications. The 
+specified language must be displayable using the current system character set. 
+The uiParam parameter is not used. The pvParam parameter must point to a 32-bit 
+variable that contains the keyboard layout handle for the default language.<br>
+SPI_SETDESKPATTERN<br>
+Sets the current desktop pattern by causing Windows to read the Pattern= setting 
+from the WIN.INI file.<br>
+SPI_SETDESKWALLPAPER<br>
+Sets the desktop wallpaper. The pvParam parameter must point to a 
+null-terminated string containing the name of a bitmap file.<br>
+SPI_SETDOUBLECLICKTIME<br>
+Sets the double-click time for the mouse to the value of the uiParam parameter. 
+The double-click time is the maximum number of milliseconds that can occur 
+between the first and second clicks of a double-click.<br>
+SPI_SETDOUBLECLKHEIGHT<br>
+Sets the height of the double-click rectangle to the value of the uiParam 
+parameter.<br>
+The double-click rectangle is the rectangle within which the second click of a 
+double-click must fall for it to be registered as a double-click.<br>
+SPI_SETDOUBLECLKWIDTH<br>
+Sets the width of the double-click rectangle to the value of the uiParam 
+parameter.<br>
+The double-click rectangle is the rectangle within which the second click of a 
+double-click must fall for it to be registered as a double-click.<br>
+SPI_SETDRAGFULLWINDOWS<br>
+Sets dragging of full windows either on or off. The uiParam parameter specifies 
+TRUE for on, or FALSE for off.<br>
+Windows 95: This flag is supported only if Windows Plus! is installed. See 
+SPI_GETWINDOWSEXTENSION.<br>
+SPI_SETDRAGHEIGHT<br>
+Sets the height, in pixels, of the rectangle used to detect the start of a drag 
+operation.<br>
+See SM_CXDRAG and SM_CYDRAG in the table under the nIndex parameter of 
+GetSystemMetrics.<br>
+SPI_SETDRAGWIDTH<br>
+Sets the width, in pixels, of the rectangle used to detect the start of a drag 
+operation.<br>
+See SM_CXDRAG and SM_CYDRAG in the table under the nIndex parameter of 
+GetSystemMetrics.<br>
+SPI_SETFASTTASKSWITCH<br>
+This flag is obsolete. Previous versions of Windows use this flag to enable or 
+disable ALT+TAB fast task switching. Beginning with Windows 95 and Windows NT 
+version 4.0, fast task switching is always enabled.<br>
+SPI_SETFILTERKEYS<br>
+Sets the parameters of the FilterKeys accessibility feature. The pvParam 
+parameter must point to a FILTERKEYS structure that contains the new parameters. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(FILTERKEYS).<br>
+SPI_SETFONTSMOOTHING<br>
+Enables or disables the font smoothing feature, which uses font anti-aliasing to 
+make font curves appear smoother by painting pixels at different gray levels.<br>
+To enable the feature, set the uiParam parameter to TRUE. To disable the 
+feature, set uiParam to FALSE.<br>
+Windows 95: This flag is supported only if Windows Plus! is installed. See 
+SPI_GETWINDOWSEXTENSION.<br>
+SPI_SETGRIDGRANULARITY<br>
+Sets the granularity of the desktop sizing grid to the value of the uiParam 
+parameter.<br>
+SPI_SETHANDHELD<br>
+Used internally; applications should not use this value.<br>
+SPI_SETHIGHCONTRAST<br>
+Windows 95 only: Sets the parameters of the HighContrast accessibility feature. 
+The pvParam parameter must point to a HIGHCONTRAST structure that contains the 
+new parameters. Set the cbSize member of this structure and the uiParam 
+parameter to sizeof(HIGHCONTRAST).<br>
+SPI_SETICONMETRICS<br>
+Sets the metrics associated with icons. The pvParam parameter must point to an 
+ICONMETRICS structure that contains the new parameters. Set the cbSize member of 
+this structure and the uiParam parameter to sizeof(ICONMETRICS).<br>
+SPI_SETICONTITLELOGFONT<br>
+Sets the font that is used for icon titles. The uiParam parameter specifies the 
+size of a LOGFONT structure, and the pvParam parameter must point to a LOGFONT 
+structure.<br>
+SPI_SETICONTITLEWRAP<br>
+Turns icon-title wrapping on or off. The uiParam parameter specifies TRUE for 
+on, or FALSE for off.<br>
+SPI_SETKEYBOARDDELAY<br>
+Sets the keyboard repeat-delay setting to the value of the uiParam parameter.<br>
+SPI_SETKEYBOARDPREF<br>
+Windows 95 only: Sets the keyboard preference. The uiParam parameter specifies 
+TRUE if the user relies on the keyboard instead of the mouse, and wants 
+applications to display keyboard interfaces that would otherwise be hidden; 
+uiParam is FALSE otherwise.<br>
+SPI_SETKEYBOARDSPEED<br>
+Sets the keyboard repeat-speed setting to the value of the uiParam parameter.<br>
+SPI_SETLANGTOGGLE<br>
+Sets the hot key set for switching between input languages. The uiParam and 
+pvParam parameters are not used. The value sets the shortcut keys in the 
+keyboard property sheets by reading the registry again. The registry must be set 
+before this flag is used. the path in the registry is \HKEY_CURRENT_USER\keyboard 
+layout\toggle. Valid values are “1” = alt+shift, “2” = ctrl+shift, and “3” = 
+none.<br>
+SPI_SETLOWPOWERACTIVE<br>
+Windows 95 only: Activates or deactivates the low-power phase of screen saving. 
+Set uiParam to 1 to activate, or 0 to deactivate. The pvParam parameter must be 
+NULL.<br>
+SPI_SETLOWPOWERTIMEOUT<br>
+Windows 95 only: Retrieves the time-out value, in seconds, for the low-power 
+phase of screen saving. The uiParam parameter specifies the new value. The 
+pvParam parameter must be NULL.<br>
+SPI_SETMENUDROPALIGNMENT<br>
+Sets the alignment value of pop-up menus. The uiParam parameter specifies TRUE 
+for right alignment, or FALSE for left alignment.<br>
+SPI_SETMINIMIZEDMETRICS<br>
+Sets the metrics associated with minimized windows. The pvParam parameter must 
+point to a MINIMIZEDMETRICS structure that contains the new parameters. Set the 
+cbSize member of this structure and the uiParam parameter to 
+sizeof(MINIMIZEDMETRICS).<br>
+SPI_SETMOUSE<br>
+Sets the two mouse threshold values and the mouse speed. The pvParam parameter 
+must point to an array of three integers that specifies these values. See 
+mouse_event for further information.<br>
+SPI_SETMOUSEBUTTONSWAP<br>
+Swaps or restores the meaning of the left and right mouse buttons. The uiParam 
+parameter specifies TRUE to swap the meanings of the buttons, or FALSE to to 
+restore their original meanings.<br>
+SPI_SETMOUSEHOVERHEIGHT<br>
+Windows NT only: Sets the height, in pixels, of the rectangle within which the 
+mouse pointer has to stay for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. The height is set from the uiParam parameter.<br>
+SPI_SETMOUSEHOVERTIME<br>
+Windows NT only: Sets the time, in milliseconds, that the mouse pointer has to 
+stay in the hover rectangle for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. This is used only if you pass HOVER_DEFAULT in the dwHoverTime 
+parameter in the call to TrackMouseEvent. The time is set from the uiParam 
+parameter.<br>
+SPI_SETMOUSEHOVERWIDTH<br>
+Windows NT only: Sets the width, in pixels, of the rectangle within which the 
+mouse pointer has to stay for TrackMouseEvent to generate a WM_MOUSEHOVER 
+message. The width is set from the uiParam parameter.<br>
+SPI_SETMOUSEKEYS<br>
+Sets the parameters of the MouseKeys accessibility feature. The pvParam 
+parameter must point to a MOUSEKEYS structure that contains the new parameters. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(MOUSEKEYS).<br>
+SPI_SETMOUSETRAILS<br>
+Windows 95 only: Enables or disables the Mouse Trails feature, which improves 
+the visibility of mouse cursor movements by briefly showing a trail of cursors 
+and quickly erasing them.<br>
+To disable the feature, set the uiParam parameter to zero or 1. To enable the 
+feature, set uiParam to a value greater than 1 to indicate the number of cursors 
+drawn in the trail.<br>
+SPI_SETNONCLIENTMETRICS<br>
+Sets the metrics associated with the nonclient area of nonminimized windows. The 
+pvParam parameter must point to a NONCLIENTMETRICS structure that contains the 
+new parameters. Set the cbSize member of this structure and the uiParam 
+parameter to sizeof(NONCLIENTMETRICS).<br>
+SPI_SETPENWINDOWS<br>
+Windows 95 only: Specifies that pen windows is being loaded or unloaded. The 
+uiParam parameter is TRUE when loading and FALSE when unloading pen windows. The 
+pvParam parameter is NULL.<br>
+SPI_SETPOWEROFFACTIVE<br>
+Windows 95 only: Activates or deactivates the power-off phase of screen saving. 
+Set uiParam to 1 to activate, or 0 to deactivate. The pvParam parameter must be 
+NULL.<br>
+SPI_SETPOWEROFFTIMEOUT<br>
+Windows 95 only: Retrieves the time-out value, in seconds, for the power-off 
+phase of screen saving. The uiParam parameter specifies the new value. The 
+pvParam parameter must be NULL.<br>
+SPI_SETSCREENREADER<br>
+Windows 95 only: Indicates whether a screen review utility is running. The 
+uiParam parameter specifies TRUE for on, or FALSE for off.<br>
+SPI_SETSCREENSAVEACTIVE<br>
+Sets the state of the screen saver. The uiParam parameter specifies TRUE to 
+activate screen saving, or FALSE to deactivate it.<br>
+SPI_SETSCREENSAVETIMEOUT<br>
+Sets the screen saver time-out value to the value of the uiParam parameter. This 
+value is the amount of time, in seconds, that the system must be idle before the 
+screen saver activates.<br>
+SPI_SETSERIALKEYS<br>
+Windows 95 only: Sets the parameters of the SerialKeys accessibility feature. 
+The pvParam parameter must point to a SERIALKEYS structure that contains the new 
+parameters. Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(SERIALKEYS).<br>
+SPI_SETSHOWSOUNDS<br>
+Sets the ShowSounds accessibility feature as on or off. The uiParam parameter 
+specifies TRUE for on, or FALSE for off.<br>
+SPI_SETSNAPTODEFBUTTON<br>
+Windows NT only: Enables or disables the snap-to-default-button feature. If 
+enabled, the mouse cursor automatically moves to the default button, such as 
+“OK” or “Apply”, of a dialog box. Set the uiParam parameter to TRUE to enable 
+the feature, or FALSE to disable it.<br>
+SPI_SETSOUNDSENTRY<br>
+Sets the parameters of the SoundSentry accessibility feature. The pvParam 
+parameter must point to a SOUNDSENTRY structure that contains the new 
+parameters. Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(SOUNDSENTRY).<br>
+SPI_SETSTICKYKEYS<br>
+Sets the parameters of the StickyKeys accessibility feature. The pvParam 
+parameter must point to a STICKYKEYS structure that contains the new parameters. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(STICKYKEYS).<br>
+SPI_SETTOGGLEKEYS<br>
+Sets the parameters of the ToggleKeys accessibility feature. The pvParam 
+parameter must point to a TOGGLEKEYS structure that contains the new parameters. 
+Set the cbSize member of this structure and the uiParam parameter to 
+sizeof(TOGGLEKEYS).<br>
+SPI_SETWHEELSCROLLLINES<br>
+Windows NT only: Sets the number of lines to scroll when the mouse wheel is 
+rotated. The number of lines is set from the uiParam parameter.<br>
+The number of lines is the suggested number of lines to scroll when the mouse 
+wheel is rolled without using modifier keys. If the number is 0, then no 
+scrolling should occur. If the number of lines to scroll is greater than the 
+number of lines viewable, and in particular if it is WHEEL_PAGESCROLL (#defined 
+as UINT_MAX), the scroll operation should be interpreted as clicking once in the 
+page down or page up regions of the scroll bar.<br>
+SPI_SETWORKAREA<br>
+Sets the size of the work area. The work area is the portion of the screen not 
+obscured by the taskbar. The pvParam parameter must point to the RECT structure 
+that contains the coordinates of the work area.<br>
+<br>
+· uiParam<br>
+Depends on the system parameter being queried or set. For more information about 
+systemwide parameters, see the uiAction parameter. If not otherwise indicated, 
+specify zero.<br>
+<br>
+· pvParam<br>
+Depends on the system parameter being queried or set. For more information about 
+systemwide parameters, see the uiAction parameter. If not otherwise indicated, 
+specify NULL.<br>
+<br>
+· fWinIni<br>
+If a system parameter is being set, specifies whether the user profile is to be 
+updated, and if so, whether the WM_SETTINGCHANGE message is to be broadcast to 
+all top-level windows to notify them of the change. This parameter can be zero 
+or can be one of the following values:<br>
+SPIF_UPDATEINIFILE<br>
+Writes the new system-wide parameter setting to the user profile.<br>
+SPIF_SENDCHANGE<br>
+Broadcasts the WM_SETTINGCHANGE message after updating the user profile.<br>
+SPIF_SENDWININICHANGE<br>
+Same as SPIF_SENDCHANGE.<br>
+<b><br>
+Return Values<br>
+</b>If the function succeeds, the return value is nonzero.<br>
+<br>
+If the function fails, the return value is zero. To get extended error 
+information, call GetLastError.<br>
+<b><br>
+Example(s)<br>
+</b>WallPaper\WallPaper Demo.vbp<br>
+Font Info\Font Info Demo.vbp<br>
+&nbsp;</font></p>
+<hr>
+
+<p><font face="Comic Sans MS" size="4"><b>Learning Outcome<br>
+</b></font><font face="Comic Sans MS">- You had learn how to use all 28 API 
+related with Windows information efficiently</font></p>
+<p><font face="Comic Sans MS" size="4"><b>What I'd&nbsp; Like You To Do<br>
+</b></font><font face="Comic Sans MS">- Vote for me at
+<a href="http://www.planetsourcecode.com/vb/">www.planetsourcecode.com/vb/</a><br>
+- Give me feedback about this tutorial at
+<a href="http://www.planetsourcecode.com/vb/">www.planetsourcecode.com/vb/</a><br>
+- Visit my website <a href="http://www.geocities.com/lamrihui/">
+www.geocities.com/lamrihui/</a></font></p>
+<p><font face="Comic Sans MS" size="4"><b>Note : </b></font>
+<font face="Comic Sans MS">The examples in this tutorial are not mine, there are 
+copyrighted by others.</font></p>
+<p><font face="Comic Sans MS">Lastly, thank you for reading this tutorial. Hope 
+you benefit from this tutorial. Happy coding!</font></p>
+<p align="center"><font face="Comic Sans MS">
+--------------------------------------------------------------------------<br>
+</font><b><font face="Comic Sans MS" size="6">A 28 Windows 
+Information APIs Tutorial Ends Here</font></b><font face="Comic Sans MS"><br>
+--------------------------------------------------------------------------</font></p>
+
+</body>
+
+</html>
